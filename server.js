@@ -8,7 +8,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.use('/Luvai-webapp', express.static(path.join(__dirname, 'Luvai-webapp')));
+app.use('/public', express.static(path.join(__dirname, 'public')));
 
 // File path for persistent storage
 const ORDERS_FILE = path.join(__dirname, 'orders.json');
