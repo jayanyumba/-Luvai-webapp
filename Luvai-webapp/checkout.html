@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - Luvai Organics</title>
+  <link rel="stylesheet" href="style2.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+<div class="checkout-container">
+
+  <h1>Checkout</h1>
+  <p class="description">
+    Complete your order details below
+  </p>
+
+  <!-- Order Total -->
+  <div class="price" id="orderTotal">Ksh. 0</div>
+
+  <!-- Checkout Form -->
+  <form id="checkoutForm">
+
+    <label>Full Name *</label>
+    <input type="text" name="name" placeholder="John Doe" required>
+
+    <label>Phone Number *</label>
+    <input type="tel" name="phone" placeholder="0712345678" pattern="0[17]\d{8}" required>
+
+    <label>Delivery Address *</label>
+    <input type="text" name="address" placeholder="e.g., Nairobi, Westlands" required>
+        
+    <label>Additional Notes (Optional)</label>
+    <input type="text" name="additionalInfo" placeholder="Delivery instructions, special requests...">
+
+    <button type="submit" class="pay-button">
+      <i class="fas fa-shopping-cart"></i> Place Order
+    </button>
+
+    <p style="text-align: center; color: #666; font-size: 13px; margin-top: 15px;">
+      💚 You'll receive M-Pesa payment instructions after placing your order
+    </p>
+
+  </form>
+
+</div>
+
+<script src="script2.js"></script>
+</body>
+</html>

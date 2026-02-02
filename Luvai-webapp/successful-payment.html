@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Placed - Luvai Organics</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f9f6f3 0%, #e8d5c4 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .success-container {
+            background: white;
+            max-width: 600px;
+            width: 100%;
+            padding: 50px 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            text-align: center;
+        }
+
+        .success-icon {
+            width: 100px;
+            height: 100px;
+            background: #10b981;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            animation: scaleIn 0.5s ease;
+        }
+
+        .success-icon i {
+            font-size: 50px;
+            color: white;
+        }
+
+        h1 {
+            font-size: 32px;
+            color: #2c2c2c;
+            margin-bottom: 15px;
+        }
+
+        .order-reference {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .order-reference strong {
+            color: #084c51;
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        .payment-instructions {
+            background: #f0fdf4;
+            border: 2px solid #86efac;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 30px 0;
+            text-align: left;
+        }
+
+        .payment-instructions h3 {
+            color: #16a34a;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .payment-step {
+            display: flex;
+            align-items: start;
+            margin-bottom: 15px;
+            padding: 12px;
+            background: white;
+            border-radius: 8px;
+        }
+
+        .step-number {
+            background: #16a34a;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .step-content {
+            flex: 1;
+        }
+
+        .till-box {
+            background: white;
+            border: 2px dashed #16a34a;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            text-align: center;
+        }
+
+        .till-number {
+            font-size: 36px;
+            color: #16a34a;
+            font-weight: 700;
+            margin: 10px 0;
+        }
+
+        .amount {
+            font-size: 28px;
+            color: #084c51;
+            font-weight: 700;
+            margin: 10px 0;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .btn {
+            padding: 14px 30px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .btn-primary {
+            background: #084c51;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #0a5d63;
+            transform: translateY(-2px);
+        }
+
+        @keyframes scaleIn {
+            from { transform: scale(0); }
+            to { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="success-container">
+        <div class="success-icon">
+            <i class="fas fa-check"></i>
+        </div>
+
+        <h1>Order Placed Successfully! 🎉</h1>
+        <p class="order-reference">Order ID: <strong id="orderRef">Loading...</strong></p>
+
+        <div class="payment-instructions">
+            <h3>💚 Complete Payment via M-Pesa</h3>
+            
+            <div class="payment-step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    Go to M-Pesa → <strong>Lipa na M-Pesa</strong> → <strong>Buy Goods and Services</strong>
+                </div>
+            </div>
+
+            <div class="payment-step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    Enter Till Number:
+                    <div class="till-box">
+                        <p style="font-size: 14px; color: #666; margin: 0;">Till Number</p>
+                        <div class="till-number">6584060</div>
+                        <p style="font-size: 12px; color: #666; margin: 0;">Luvai Organics</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="payment-step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    Enter Amount:
+                    <div class="till-box">
+                        <p style="font-size: 14px; color: #666; margin: 0;">Amount to Pay</p>
+                        <div class="amount">Ksh. <span id="paymentAmount">0</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="payment-step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    Enter your <strong>M-Pesa PIN</strong> and confirm
+                </div>
+            </div>
+
+            <p style="background: white; padding: 15px; border-radius: 8px; text-align: center; margin-top: 20px; color: #084c51;">
+                ✅ <strong>We'll dispatch your order once payment is received!</strong><br>
+                <span style="font-size: 14px; color: #666;">You'll get a call from our rider on delivery</span>
+            </p>
+        </div>
+
+        <div class="buttons">
+            <a href="index.html" class="btn btn-primary">
+                <i class="fas fa-home"></i> Back to Home
+            </a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const orderRef = urlParams.get('order');
+
+            if (orderRef) {
+                document.getElementById('orderRef').textContent = orderRef;
+
+                try {
+                    const response = await fetch(`http://localhost:3000/api/orders/${orderRef}`);
+                    const data = await response.json();
+
+                    if (data.order) {
+                        document.getElementById('paymentAmount').textContent = data.order.amount.toLocaleString();
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                }
+
+                // Clear cart
+                localStorage.removeItem('cart');
+                localStorage.removeItem('cartTotal');
+            }
+        });
+    </script>
+</body>
+</html>
