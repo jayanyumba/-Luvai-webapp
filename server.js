@@ -1,4 +1,4 @@
-﻿const express = require('express');
+const express = require('express');
 const cors = require('cors');
 const nodemailer = require('nodemailer');
 const fs = require('fs');
@@ -9,6 +9,9 @@ app.use(cors());
 app.use(express.json());
 
 app.use('/public', express.static(path.join(__dirname, 'public')));
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 
 // File path for persistent storage
 const ORDERS_FILE = path.join(__dirname, 'orders.json');
